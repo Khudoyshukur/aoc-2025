@@ -8,7 +8,7 @@ val memo = hashMapOf<Pair<Int, Int>, String>()
 
 fun main() {
 
-    val file = File("src/aoc/day3/input.txt")
+    val file = File("src/aoc/day4/input.txt")
     file.createNewFile()
     val fileReader = FileReader(file)
 
