@@ -5,7 +5,7 @@ import java.io.FileReader
 
 fun main() {
 
-    val file = File("src/aoc/day6/input.txt")
+    val file = File("src/aoc/day06/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
@@ -33,8 +33,8 @@ fun main() {
         }
 
 
-        val ops = lines.last()[iterators[iterators.size - 1]]
-        println("$ops")
+        if (lines.isEmpty()) continue
+        val ops = lines.last().getOrNull(iterators[iterators.size - 1]) ?: break
         var res = if (ops == '*') 1L else 0L
         val nums = mutableListOf<String>()
 
@@ -50,7 +50,6 @@ fun main() {
                 iterators[iterators.lastIndex]++
                 break
             }
-            //println("HasDigit: $hasDigit $iterators ${iterators.mapIndexed { index, value -> lines[index][value] }}")
 
             val minIteratorIndex = iterators.dropLast(1).min()
             val num = StringBuilder("")
@@ -69,7 +68,6 @@ fun main() {
                 var curr = 1L
                 nums.map { it.toLong() }.forEach { curr *= it }
                 res = curr
-                //println("$nums -> $ops $res")
             } else {
                 res += nums.sumOf { it.toLong() }
             }

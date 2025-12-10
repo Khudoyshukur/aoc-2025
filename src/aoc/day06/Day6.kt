@@ -5,12 +5,11 @@ import java.io.FileReader
 
 fun main() {
 
-    val file = File("src/aoc/day6/input.txt")
+    val file = File("src/aoc/day06/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
     val lines = input.split("\n")
-    println(lines)
 
     val cols = hashMapOf<Int, MutableList<String>>()
     val rowsCount = lines[0].split(" ")
@@ -22,7 +21,6 @@ fun main() {
         while (currLine.contains("  ")) {
             currLine = currLine.replace("  ", " ")
         }
-        println(currLine)
 
         val rows = currLine.split(" ").filter { it.isNotBlank() }
         for (j in rows.indices) {
