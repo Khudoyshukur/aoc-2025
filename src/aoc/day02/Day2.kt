@@ -4,16 +4,13 @@ import java.io.File
 import java.io.FileReader
 
 fun main() {
-//    println(isInvalidId("8484902030"))
-//    return
-
     val file = File("src/aoc/day2/input.txt")
     file.createNewFile()
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
     val ids = input.trim().split(",")
-    var res = mutableListOf<Long>()
+    val res = mutableListOf<Long>()
     for (idRange in ids) {
         val range = idRange.trim().split("-")
         val from = range[0].toLong()
@@ -38,20 +35,6 @@ private fun isInvalidId(id: String): Boolean {
             return true
         }
     }
-
-//    for (i in 0 until id.length) {
-//        for (j in (i + 1) until id.length) {
-//            val length = j - i
-//            if (length > (id.length - j)) break
-//
-//            val sub1 = id.slice(i until j)
-//            val sub2 = id.slice(j until (j + length))
-//
-//            println("$sub1 $sub2")
-//
-//            if (sub1 == sub2) return true
-//        }
-//    }
 
     return false
 }
