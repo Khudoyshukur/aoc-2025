@@ -12,7 +12,7 @@ data class Coor(
 
 fun main() {
 
-    val file = File("src/aoc/day9/input.txt")
+    val file = File("src/aoc/day09/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()

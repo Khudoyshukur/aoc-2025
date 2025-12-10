@@ -8,7 +8,7 @@ import kotlin.math.min
 
 fun main() {
 
-    val file = File("src/aoc/day9/input.txt")
+    val file = File("src/aoc/day09/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
@@ -87,9 +87,7 @@ fun main() {
         }
     }
 
-    println("Connected components ${connectedComponents.size} firstSize: ${connectedComponents.firstOrNull()?.size}")
-
-    println("Flagging green")
+    println("Flagging green...")
     greenCoords.addAll(coords)
     val validPairs = HashMap<Int, MutableSet<Pair<Int, Int>>>()
     val validColPairs = HashMap<Int, MutableSet<Pair<Int, Int>>>()
@@ -129,8 +127,7 @@ fun main() {
         }
     }
 
-    println(coords.maxBy { it.i }.i + 1)
-    println(coords.maxBy { it.j }.j + 1)
+    // FOR VISUALIZING
 //    val matrix = Array(
 //        coords.maxBy { it.i }.i + 1
 //    ) {
@@ -154,16 +151,10 @@ fun main() {
 //        println()
 //    }
 
-    println("Calculating largest")
+    println("Calculating largest...")
     var largest = 0L
 
-    //println(validPairs.keys.map { validPairs[it]!!.size })
-//    println(validColPairs)
-//    println(validPairs)
-
-
     for (i in coords.indices) {
-        println("Checking row $i")
         for (j in (i + 1) until coords.size) {
             val c1 = coords[i]
             val c2 = coords[j]
@@ -172,9 +163,6 @@ fun main() {
             val bottomRow = max(c1.i, c2.i)
             val leftCol = min(c1.j, c2.j)
             val rightCol = max(c1.j, c2.j)
-
-//            val topRowRange = validPairs[topRow].orEmpty()
-//            val bottomRowRange = validPairs[bottomRow]
 
             var valid = true
 
@@ -200,7 +188,6 @@ fun main() {
             }
 
             if (valid) {
-                //println("Valid $c1 $c2")
                 val height = abs(c1.i - c2.i) + 1
                 val width = abs(c1.j - c2.j) + 1
                 val area = height.toLong() * width.toLong()
@@ -237,5 +224,3 @@ fun fillGreenFast(component: List<Coor>, green: MutableSet<Coor>) {
         }
     }
 }
-
-// first answer: 4638696212 wrong
