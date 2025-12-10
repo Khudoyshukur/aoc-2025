@@ -38,33 +38,26 @@ fun main() {
 //        val min = minToggles(machine)
         val min = getMinPresses(machine)
 
-        println("For ${machine} $min")
-
         res += min
     }
 
     println(res)
 }
 
+// this algo takes infinite time to finish )))
 fun minToggles(
     machine: Machine,
 ): Int {
-//    val queue: PriorityQueue<Pair<MutableList<Int>, Int>> = PriorityQueue(
-//        compareBy<Pair<MutableList<Int>, Int>> { it.second }
-//    )
     val queue: Queue<Pair<MutableList<Int>, Int>> = LinkedList()
     queue.add(Pair(MutableList(machine.joltage.amounts.size) { 0 }, 0))
     val seenToggles = hashMapOf<Int, Int>()
 
     while (queue.isNotEmpty()) {
-        println("Queue size: ${queue.size}")
         val (state, toggles) = queue.remove()
         val key = state.toIntArray().contentHashCode()
         val prev = seenToggles[key]
         if (prev != null && prev <= toggles) continue
         seenToggles[key] = toggles
-
-        //println("state: $state $toggles")
 
         if (state == machine.joltage.amounts) {
             return toggles
