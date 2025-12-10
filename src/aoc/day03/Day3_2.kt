@@ -1,8 +1,7 @@
-package aoc.day3
+package aoc.day03
 
 import java.io.File
 import java.io.FileReader
-import kotlin.math.max
 
 
 val memo = hashMapOf<Pair<Int, Int>, String>()

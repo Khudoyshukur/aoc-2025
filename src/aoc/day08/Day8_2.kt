@@ -1,9 +1,8 @@
-package aoc.day8
+package aoc.day08
 
 import java.io.File
 import java.io.FileReader
 import java.util.PriorityQueue
-import kotlin.math.sqrt
 
 fun main() {
 

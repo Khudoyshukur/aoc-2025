@@ -1,10 +1,10 @@
-package aoc.day2
+package aoc.day02
 
 import java.io.File
 import java.io.FileReader
 
 fun main() {
-//    println(isInvalidId("8484902030"))
+//    println(isInvalidId("12"))
 //    return
 
     val file = File("src/aoc/day2/input.txt")
@@ -26,6 +26,7 @@ fun main() {
         }
     }
 
+//    println(res)
     println(res.sum())
 }
 
@@ -33,10 +34,12 @@ private fun isInvalidId(id: String): Boolean {
     if (id.isBlank()) return true
     if (id[0] == '0') return true
 
-    if (id.length % 2 == 0) {
-        if (id.slice(0 until id.length.div(2)) == id.slice(id.length.div(2) until id.length)) {
-            return true
-        }
+    for (k in 2..id.length) {
+        if (id.length % k != 0) continue
+        val chunked = id.chunked(id.length / k)
+//        println(chunked)
+
+        if (chunked.toSet().size == 1) return true
     }
 
 //    for (i in 0 until id.length) {
