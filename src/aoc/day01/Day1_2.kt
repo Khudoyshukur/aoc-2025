@@ -12,12 +12,9 @@ fun main() {
     val input = fileReader.readText()
     val inputs = input.split("\n").map { it.trim() }
 
-    // how to map -5 to 95?
-    //
-
     var curr = 50
     var res = 0
-    println(inputs)
+
     for (input in inputs) {
         val from = curr
         val rotation = input.drop(1).toInt()
@@ -29,7 +26,6 @@ fun main() {
                 curr += rotation
             }
         }
-        println(curr)
 
         if (abs(curr) % 100 == 0) {
             res++

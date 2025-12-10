@@ -5,7 +5,6 @@ import java.io.FileReader
 
 fun main() {
     val file = File("src/aoc/day1/input.txt")
-    file.createNewFile()
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
@@ -13,7 +12,7 @@ fun main() {
 
     var curr = 50
     var res = 0
-    println(inputs)
+
     for (input in inputs) {
         val rotation = input.drop(1).toInt() % 100
         when(input[0]) {
@@ -21,7 +20,7 @@ fun main() {
                 if (rotation > curr) {
                     curr = (100 - (rotation - curr))
                 } else {
-                    curr = curr - rotation
+                    curr -= rotation
                 }
             }
             'R' -> {
