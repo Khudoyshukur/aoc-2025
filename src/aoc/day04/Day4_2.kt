@@ -9,16 +9,12 @@ data class Index(val i: Int, val j: Int)
 
 fun main() {
 
-    val file = File("src/aoc/day4/input.txt")
-    file.createNewFile()
+    val file = File("src/aoc/day04/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
     val lines = input.split("\n")
     val matrix = Array(lines.size) { CharArray(lines.first().length) }
-
-    println(matrix.size)
-    println(matrix.first().size)
 
     for (i in lines.indices) {
         for (j in lines.first().indices) {
@@ -62,9 +58,6 @@ fun main() {
             added.add(key)
         }
     }
-
-//    println(adjList)
-//    println(queue)
 
     while (queue.isNotEmpty()) {
         val rmIndex = queue.remove()
