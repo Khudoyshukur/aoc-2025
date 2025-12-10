@@ -7,8 +7,7 @@ import kotlin.math.max
 
 fun main() {
 
-    val file = File("src/aoc/day5/input.txt")
-    file.createNewFile()
+    val file = File("src/aoc/day05/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
