@@ -4,8 +4,7 @@ import java.io.File
 import java.io.FileReader
 
 fun main() {
-    val file = File("src/aoc/day3/input1.txt")
-    file.createNewFile()
+    val file = File("src/aoc/day03/input1.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
