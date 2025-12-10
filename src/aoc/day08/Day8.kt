@@ -21,7 +21,7 @@ data class Distance(
 
 fun main() {
 
-    val file = File("src/aoc/day8/input.txt")
+    val file = File("src/aoc/day08/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
@@ -72,10 +72,8 @@ fun main() {
     var connections = 1000
     while (pq.isNotEmpty() && connections != 0) {
         val (c1, i1, c2, i2, distance) = pq.remove()
-        println("MinDist $distance $c1 $c2 $i1 $i2")
 
         if (find(i1) != find(i2)) {
-            //println("Connecting $c1 and $c2")
             union(i1, i2)
 
         }
@@ -87,9 +85,6 @@ fun main() {
         val p = find(i)
         components[p] = (components[p] ?: 0) + 1
     }
-
-    println(parent)
-    println(components)
 
     val resList =  components.keys.sortedByDescending { components[it]!! }
         .take(3).map { components[it]!! }
