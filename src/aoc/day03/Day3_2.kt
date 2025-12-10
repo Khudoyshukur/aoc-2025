@@ -21,44 +21,9 @@ fun main() {
         res += maxSubsequence(
             0, line, 12
         ).toLong()
-
-        println(memo)
     }
 
     println(res)
-}
-
-private fun maxSubsequence(
-    index: Int,
-    line: String,
-    curr: StringBuilder,
-    max: Array<String>
-) {
-    if (curr.length == 12) {
-        if (max[0] < curr.toString()) {
-            max[0] = curr.toString()
-        }
-        return
-    }
-    if (index >= line.length) return
-
-    // include
-    curr.append(line[index])
-    maxSubsequence(
-        index + 1,
-        line,
-        curr = curr,
-        max = max
-    )
-    curr.deleteAt(curr.lastIndex)
-
-    // not include
-    maxSubsequence(
-        index + 1,
-        line,
-        curr,
-        max
-    )
 }
 
 private fun maxSubsequence(
@@ -94,30 +59,5 @@ private fun maxSubsequence(
 
     return maxOf(include, notInclude).also {
         memo[key] = it
-    }
-}
-
-private fun findMax(line: String): Long {
-    var max = 0
-    for (i in 1 until (line.length - 1)) {
-        if (line[i] > line[max]) {
-            max = i
-        }
-    }
-
-    var first = line[max]
-
-    var firstMaxIndex = max
-    max = max + 1
-    for (i in (firstMaxIndex + 1) until line.length) {
-        if (line[i] > line[max]) {
-            max = i
-        }
-    }
-
-    val second = line[max]
-
-    return "$first$second".toLong().also {
-        println("For $line $it")
     }
 }

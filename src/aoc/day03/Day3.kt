@@ -4,7 +4,6 @@ import java.io.File
 import java.io.FileReader
 
 fun main() {
-
     val file = File("src/aoc/day3/input1.txt")
     file.createNewFile()
     val fileReader = FileReader(file)
@@ -28,10 +27,10 @@ private fun findMax(line: String): Long {
         }
     }
 
-    var first = line[max]
+    val first = line[max]
 
-    var firstMaxIndex = max
-    max = max + 1
+    val firstMaxIndex = max
+    max += 1
     for (i in (firstMaxIndex + 1) until line.length) {
         if (line[i] > line[max]) {
             max = i
@@ -40,7 +39,5 @@ private fun findMax(line: String): Long {
 
     val second = line[max]
 
-    return "$first$second".toLong().also {
-        println("For $line $it")
-    }
+    return "$first$second".toLong()
 }
