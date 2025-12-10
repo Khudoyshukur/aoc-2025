@@ -16,7 +16,7 @@ data class Index(
 
 fun main() {
 
-    val file = File("src/aoc/day7/input.txt")
+    val file = File("src/aoc/day07/input.txt")
     val fileReader = FileReader(file)
 
     val input = fileReader.readText()
@@ -44,9 +44,6 @@ fun main() {
             }
         }
     }
-
-    println(beamQueue)
-
 
     while (beamQueue.isNotEmpty()) {
         val beamIndex = beamQueue.remove()
